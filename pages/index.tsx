@@ -5,11 +5,11 @@ import consumer from '../api/consumer'
 import { NoticeFeed } from '../components/noticias'
 import { Copa } from '../interfaces'
 import styles from '../styles/Home.module.css'
-import { Includes, ItemFields } from '../interfaces/interfaces';
+import { AssetsInformation, ItemFields } from '../interfaces/interfaces';
 
 interface Props {
   info: ItemFields[];
-  assets: Includes;
+  assets: AssetsInformation[];
 }
 
 
@@ -31,14 +31,20 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const info: ItemFields[] = data.items.map((info) => ({
     titulo: info.fields.titulo,
-    imagen: info.fields.imagen.sys.id,
+    imagen: info.fields.imagen || null,
   }));
-  
+
+  const assets: any = data.includes.Asset.map((data) => ({
+    id: data.sys.id,
+    url: data.fields.file.url,
+    description: data.fields.description,
+    title: data.fields.title,
+  }));
 
   return {
     props: {
       info,
-      assets: data.includes
+      assets,
     }
   }
 }
