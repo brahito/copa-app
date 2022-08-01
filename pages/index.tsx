@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     imagen: info.fields.imagen || null,
   }));
 
-  const assets: any = data.includes.Asset.map((data) => ({
+  const assets: AssetsInformation[] = data.includes.Asset.map((data) => ({
     id: data.sys.id,
     url: data.fields.file.url,
     description: data.fields.description,
