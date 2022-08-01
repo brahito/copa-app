@@ -1,16 +1,25 @@
+/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
 import React, { FC } from 'react'
-import { Asset, ContentType } from '../../interfaces';
+import { Asset, AssetsInformation, ContentType } from '../../interfaces';
 
-interface Props{
+interface Props {
     titulo: string;
-    imagen: ContentType;
+    imagenes?: any[] | undefined;
+    assets?: any;
 }
-export const Notice:FC<Props> = ({titulo, imagen}) => {
-    console.log(imagen);
+export const Notice: FC<Props> = ({ titulo, imagenes, assets }) => {
     return (
         <div>
             <h2>{titulo}</h2>
-            {/* <img src={imagen} alt="aun no hay imagen" /> */}
+            <p>Hola mundo</p>
+            {imagenes ?
+                imagenes?.map((imagen, index) => (
+                    <img src={assets[imagen?.sys.id]} alt={assets[imagen?.sys.id + "_title"]} key={index} />
+                ))
+                :
+                <></>
+            }
         </div>
     )
 }

@@ -58,7 +58,7 @@ export interface AssetSys {
 }
 
 export interface ContentType {
-    sys: ContentTypeSys;
+    sys?: ContentTypeSys;
 }
 
 export interface ContentTypeSys {
@@ -79,9 +79,25 @@ export interface Item {
 
 export interface ItemFields {
     titulo: string;
-    imagen?: ContentType[];
+    imagen?: ContentType[] | null;
 }
 
 export interface CopaSys {
     type: string;
 }
+
+export interface AssetsInformation {
+    id?: string;
+    url?: string;
+    title?: string;
+    description?: string;
+}
+
+export interface AssetsInformationProcessed {
+    url: string;
+    titulo: string;
+    description: string;
+}
+
+
+
