@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const info: ItemFields[] = data.items.map((info) => ({
     titulo: info.fields.titulo,
-    imagen: info.fields.imagen.sys.id,
+    imagen: info.fields.imagen,
   }));
   
 

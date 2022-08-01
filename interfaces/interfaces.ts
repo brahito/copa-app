@@ -79,7 +79,7 @@ export interface Item {
 
 export interface ItemFields {
     titulo: string;
-    imagen: ContentType[];
+    imagen?: ContentType[];
 }
 
 export interface CopaSys {

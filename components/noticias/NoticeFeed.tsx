@@ -9,9 +9,9 @@ interface Props {
 export const NoticeFeed: FC<Props> = ({ informacion, imagen }) => {
     return (
         <div>
-            {informacion.map((info, id) => (
-                <Notice titulo={info.titulo} imagen={imagen.Asset[id]} key={id}/>
-            ))}
+            {/* {informacion.map((info, id) => (
+                <Notice titulo={info.titulo} imagen={info?.imagen} key={id}/>
+            ))} */}
         </div>
     )
 }
