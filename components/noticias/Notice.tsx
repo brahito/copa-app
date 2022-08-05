@@ -8,17 +8,19 @@ interface Props {
     imagenes?: any[] | undefined;
     assets?: any;
 }
+
 export const Notice: FC<Props> = ({ titulo, imagenes, assets }) => {
     return (
         <div>
             <h2>{titulo}</h2>
-            <p>Hola mundo</p>
             {imagenes ?
                 imagenes?.map((imagen, index) => (
                     <img src={assets[imagen?.sys.id]} alt={assets[imagen?.sys.id + "_title"]} key={index} />
                 ))
                 :
-                <></>
+                <>
+                    <p>No hay imagenes</p>
+                </>
             }
         </div>
     )
