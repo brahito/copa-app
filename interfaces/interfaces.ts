@@ -87,16 +87,14 @@ export interface CopaSys {
 }
 
 export interface AssetsInformation {
-    id?: string;
-    url?: string;
-    title?: string;
-    description?: string;
+    id: string;
+    url: string;
+    title: string;
+    description: string;
 }
 
 export interface AssetsInformationProcessed {
-    url: string;
-    titulo: string;
-    description: string;
+    [key: string]: string;
 }
 
 
